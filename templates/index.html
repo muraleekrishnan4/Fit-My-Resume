@@ -1,0 +1,47 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+	</head>
+
+	<body>
+
+		<div class=main>
+
+			<center><h2>Fit My Resume</h2></center>
+
+			<p>Fit My Resume is job description keyword extractor that find apt keywords using NLP (Natural Language Processing) and most frequent words from the given job description. You can include these keywords in your resume to get good score for ATS (Application Tracking Systems).</p>
+
+			<form class="job_desc" action="/result" method="POST">
+
+				<label for= "name">Enter your Job Description</label><br>
+				<textarea name="job_desc" id="job_desc" rows=30 cols=70></textarea><br>
+				<button type="submit" class="submit-button" role="button" name="submit">Submit</button>
+
+			</form>
+			
+
+
+			<center>
+				{% if result %}
+					<table border =1 width="80%">
+						{% for key, value in result.items() %}
+							<tr>
+								<th> {{ key }} </th>
+								<td> {{ value }} </td>
+							</tr>
+						{% endfor %}
+					</table>
+				{% endif %}
+			</center>
+
+		</div>
+	</body>
+
+<footer style="font-family: lato;">
+	Developed by Muraleekrishnan
+</footer>
+
+	
+
+</html>

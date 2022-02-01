@@ -1,0 +1,74 @@
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+	</head>
+	
+
+	<body>
+
+		<div class=main>
+
+			<center><h2>Fit My Resume</h2></center>
+
+			<p>Fit My Resume is job description keyword extractor that find apt keywords using NLP(Natural Language Processing) and most frequent words from the given job description. You can include these keywords in your resume to get good score for ATS (Application Tracking Systems)</p>
+			
+			<p><a href="javascript:history.back()">
+			<button class="back-button" role="button">Go Back</button></a></p>
+
+			<center>
+				<div class="container">
+					<div class="container-1">
+						<h3>Most frequent Keywords</h3>
+						{% if y_keywords %}
+							<table border =1 width="80%">
+								<thead>
+									<tr class="table-head">
+										<th class="column1">Keywords</th>
+										<th class="column2">Frequncy</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for key, value in y_keywords.items() %}
+										<tr>
+											<th id="key"> {{ key }} </th>
+											<td id="value"> {{ value }} </td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						{% endif %}
+					</div>
+
+					<div class="container-2">
+						<h3>Most frequent Words</h3>
+						{% if s_keywords %}
+							<table border =1 width="80%">
+								<thead>
+									<tr class="table-head">
+										<th class="column1">Keywords</th>
+										<th class="column2">Frequncy</th>
+									</tr>
+								</thead>
+								<tbody>
+									{% for key, value in s_keywords.items() %}
+										<tr>
+											<th id="key"> {{ key }} </th>
+											<td id="value"> {{ value }} </td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						{% endif %}
+					</div>
+				</div>
+
+			</center>
+
+		</div>
+	</body>
+
+
+	
+
+</html>
